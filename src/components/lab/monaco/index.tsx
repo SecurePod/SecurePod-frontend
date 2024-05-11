@@ -92,7 +92,7 @@ const Manaco: React.FC<{ id: string }> = ({ id }) => {
     }
     reqBody.id = id
 
-    await fetch(`https://${API_URL}/api/v1/docker/write`, {
+    await fetch(`https://${API_URL}:8080/api/v1/docker/write`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -29,7 +29,7 @@ const Iframe: React.FC<IframeProps> = (props) => {
         width={800}
         height={800}
         key={count}
-        src={`https://p${props.port}.${host}/${props.path}`}
+        src={`http://${host}:${props.port}/${props.path}`}
       ></iframe>
     </>
   )
