@@ -2,7 +2,7 @@
 
 import Editor, { Monaco, loader } from '@monaco-editor/react'
 import React, { useRef } from 'react'
-import { API_URL } from '@/config/config'
+import { API_PORT, API_URL } from '@/config/config'
 
 type EditorConfig = {
   mode: string
@@ -92,7 +92,7 @@ const Manaco: React.FC<{ id: string }> = ({ id }) => {
     }
     reqBody.id = id
 
-    await fetch(`https://${API_URL}:8080/api/v1/docker/write`, {
+    await fetch(`https://${API_URL}:${API_PORT}/api/v1/docker/write`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { HOST } from '@/config/config'
+import { API_URL } from '@/config/config'
 
 interface IframeProps {
   port: number
@@ -13,7 +13,7 @@ const Iframe: React.FC<IframeProps> = (props) => {
   const [host, setHost] = useState<string | undefined>(undefined)
 
   useEffect(() => {
-    setHost(HOST)
+    setHost(API_URL)
   }, [count])
 
   return (
