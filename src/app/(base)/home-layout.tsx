@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import Sidebar, { DrawerHeader } from '@/components/common/side'
+import { DrawerHeader } from '@/components/common/side'
 import Box from '@mui/joy/Box'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 
@@ -50,16 +50,15 @@ export default function HomeLayout({ children }: { children?: React.ReactNode })
     <>
       <Box component='main'>
         <ThemeProvider theme={theme}>
-          <Sidebar>
-            <Box
+        <Box
               component='main'
               sx={{ flexGrow: 1, p: 3, backgroundColor: '#F8FBFE' }}
               maxWidth='100%'
+              height='100vh'
             >
               <DrawerHeader />
               {children}
             </Box>
-          </Sidebar>
         </ThemeProvider>
       </Box>
     </>
