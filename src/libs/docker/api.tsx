@@ -36,18 +36,21 @@ export async function getConInfo(id: string[]) {
       id: id,
     }
   })
-  console.log(jsonData)
-
-  const res = await fetch(`http://${API_URL}:${API_PORT}/api/v1/docker/inspect`, {
-    method: 'POST',
-    body: JSON.stringify(jsonData),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-  const data: ContainerInformation = await res.json()
+  try {
+    const res = await fetch(`http://back:${API_PORT}/api/v1/docker/inspect`, {
+      method: 'POST',
+      body: JSON.stringify(jsonData),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    const data: ContainerInformation = await res.json()
   console.log(data)
   return data
+  }
+  catch (error) {
+    console.error('Error fetching data:', error)
+  }   
 }
 
 // export async function Fet(tag: string) {
